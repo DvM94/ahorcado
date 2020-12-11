@@ -4,12 +4,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/styles.css">
-  <title>Document</title>
+  <title>Ahorcado</title>
 </head>
 <body>
-  
-  <p>hola chicos</p>
+  <!--Simbolo de carga-->
+  <div class="cargando"></div>
 
+  <!--Pantalla principal-->
+  <header class="cabecera">
+    <nav class="cabecera-menu">
+      <img src="img/inicio.png" alt="Inicio" class="cabecera-menu-inicio">
+      <img src="img/puntuacion.png" alt="Puntuación" class="cabecera-menu-puntuacion">
+    </nav>
+  </header>
+  <main class="juego">
+    <div class="juego-temporizador">00:00</div>
+    <h2 class="juego-tematica">Temática</h2>
+    <img src="#" alt="Ahorcado" class="juego-ahorcado">
+    <div class="juego-palabra"></div>
+    <div class="juego-teclado"></div>
+    <div class="juego-datos"> 
+      <p class="juego-datos-nombre">Player</p>
+      <p class="juego-datos-partidas">Partidas ganadas: 0</p>
+    </div>
+  </main>
+  <footer>
+    <p>Este juego ha sido creado por <a href="https://infinito.estelock.repl.co/" target="blank">Infinito ∞</a></p>
+  </footer>
+  
+  <!--Modal inicio-->
+  <div class="modal-inicio">
+    <img src="#" alt="Logo" class="modal-inicio-imagen">
+    <form class="modal-inicio-formulario">
+      <label for="nombre">Introduce tu nombre:</label>
+      <input type="text" id="nombre" placeholder="Player" autofocus>
+      <div class="modal-inicio-alerta oculto">
+        <p>Debes introducir tu nombre</p>
+      </div>
+    </form>
+    <img src="img/jugar.png" alt="Jugar" class="modal-inicio-jugar">
+  </div>
+
+  <!--Modal nivel y temática-->
+  <div class="modal-opciones oculto">
+    <div class="modal-opciones-tematica">
+      <img src="#" alt="tema1" class="tematica-boton">
+    </div>
+    <div class="modal-opciones-nivel">
+      <img src="#" alt="Fácil" class="nivel-boton">
+      <img src="#" alt="Medio" class="nivel-boton">
+      <img src="#" alt="Difícil" class="nivel-boton">
+    </div>
+    <img src="img/jugar.png" alt="Jugar" class="modal-opciones-jugar">
+  </div>
+
+  <!--Modal perder-->
+  <div class="modal-fin oculto">
+    <img src="#" alt="Logo" class="modal-fin-imagen">
+    <img src="img/rejugar.png" alt="Volver a jugar" class="modal-fin-rejugar">
+  </div>
+
+  <!--Modal puntuación-->
+  <div class="modal-puntuacion oculto">
+    <div class="modal-puntuacion-marcador">
+      <img src="img/salir.png" alt="Salir" class="marcador-salir">
+      <h2 class="marcador-titulo">Puntuaciones</h2>
+      <div class="marcador-listado">
+
+      </div>
+    </div>
+  </div>
+
+  <!--JavaScript-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
