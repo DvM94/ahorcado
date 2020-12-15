@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+* {
+  font-family: 'Acme', sans-serif;
+  text-align: center;
+}
+
 .cargando {
   position: fixed;
   left: 0px;
@@ -10,4 +16,36 @@
 
 .oculto {
   display: none;
+}
+
+.juego-teclado {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0px auto;
+  max-width: 650px;
+}
+
+.juego-teclado .letra {
+  cursor: pointer;
+  position: relative;
+  border: 1px solid #999;
+  height: 70px;
+  width: 70px;
+  font-size: 3em;
+}
+
+.juego-teclado .letra:hover {
+  background-color: #e0e0e0;
+}
+
+.juego-teclado .letra .pulsada {
+  position: absolute;
+  left: 0px;
+  width: 70px;
 }

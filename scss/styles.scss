@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+*{
+  font-family: 'Acme', sans-serif;
+  text-align: center;
+}
+
 .cargando {
     position: fixed;
     left: 0px;
@@ -10,4 +17,28 @@
 
 .oculto{
   display: none;
+}
+
+.juego-teclado{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0px auto;
+  max-width: 650px;
+  .letra{
+      cursor: pointer;
+      position: relative;
+      border: 1px solid #999;
+      height: 70px;
+      width: 70px;
+      font-size: 3em;
+      &:hover{
+          background-color:rgb(224, 224, 224);
+      }
+      .pulsada{
+          position: absolute;
+          left: 0px;
+          width: 70px;
+      }
+  }
 }
