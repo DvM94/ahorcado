@@ -18,6 +18,30 @@
   display: none;
 }
 
+.invisible {
+  visibility: hidden;
+}
+
+.juego-palabra {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.juego-palabra .borde-inferior {
+  border-bottom: 2px solid black;
+  margin: 5px 2px;
+  height: 60px;
+  width: 50px;
+}
+
+.juego-ahorcado {
+  width: 400px;
+}
+
 .juego-teclado {
   display: -webkit-box;
   display: -ms-flexbox;

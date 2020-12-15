@@ -19,6 +19,25 @@
   display: none;
 }
 
+.invisible{
+  visibility: hidden;
+}
+
+.juego-palabra{
+  display: flex;
+  justify-content: center;
+    .borde-inferior{
+    border-bottom: 2px solid black;
+    margin: 5px 2px;
+    height: 60px;
+    width: 50px;
+  }
+}
+
+.juego-ahorcado{
+  width: 400px;
+}
+
 .juego-teclado{
   display: flex;
   flex-wrap: wrap;
