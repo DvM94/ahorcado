@@ -47,15 +47,19 @@ let palabras=[
 //Modal Inicio
 
 botonJugarInicio.onclick=IniciarPartida
+botonJugarInicio.onmouseover = () => botonJugarInicio.src = "./img/jugar2.png"
+botonJugarInicio.onmouseout = () => botonJugarInicio.src = "./img/jugar.png"
 
 function IniciarPartida(){
+  recogerDatos()
   fallos=0
   aciertos=0
   jugador.nombre=nombre.value
   ahorcado.setAttribute("src","./img/ahorcado0.png")
+  teclado.classList.remove("invisible")
   partidas.textContent=`Partidas ganadas: ${partidasGanadas}`
   if(nombre.value=="")
-    document.querySelector(".modal-inicio-alerta").classList.remove("oculto")
+    document.querySelector(".modal-inicio-formulario-alerta").classList.remove("oculto")
   else{
     document.querySelector(".modal-inicio").classList.add("oculto")
     nombreJugador.textContent=nombre.value
@@ -81,14 +85,14 @@ function IniciarPartida(){
   }
 }
 
-//Pantalla Principal
-
 function borrar(){
   while(teclado.firstChild)
     teclado.firstChild.remove()
   while(palabra.firstChild)
     palabra.firstChild.remove()
 }
+
+//Pantalla Principal
 
   function crearAbecedario(){
     let abecedario=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
@@ -135,55 +139,86 @@ function borrar(){
       }, 1500)
     }
     if(aciertos==palabras[seleccion].palabra.length){
+      teclado.classList.add("invisible")
       partidasGanadas++
+      ahorcado.setAttribute("src","./img/ahorcado.gif")
       setTimeout(() => {
         IniciarPartida()
-      }, 1500)
+      }, 2000)
     }
   }
 
 //Botones cabecera
 
 botonInicio.onclick=()=>{
+  guardarDatos()
   document.querySelector(".modal-inicio").classList.remove("oculto")
+  document.querySelector(".modal-fin").classList.add("oculto")
   nombre.value=""
   partidasGanadas=0
 }
 
+botonInicio.onmouseover = () => botonInicio.src = "./img/inicio2.png"
+botonInicio.onmouseout = () => botonInicio.src = "./img/inicio.png"
+
 botonPuntuaciones.onclick=()=>{
-  puntuaciones.textContent=""
   document.querySelector(".modal-puntuacion").classList.remove("oculto")
   for(let i=0;i<5;i++){
-    puntuaciones.textContent+=jugadores[i].nombre
-    puntuaciones.textContent+=jugadores[i].puntuacion
+    let div=document.createElement("div")
+    div.classList.add("marcador-listado-fila")
+    let p1=document.createElement("p")
+    p1.textContent=jugadores[i].nombre
+    let p2=document.createElement("p")
+    p2.textContent=jugadores[i].puntuacion
+    div.insertAdjacentElement("beforeend",p1)
+    div.insertAdjacentElement("beforeend",p2)
+    puntuaciones.insertAdjacentElement("beforeend",div)
   }
 }
+
+botonPuntuaciones.onmouseover = () => botonPuntuaciones.src = "./img/puntuacion2.png"
+botonPuntuaciones.onmouseout = () => botonPuntuaciones.src = "./img/puntuacion.png"
 
 //Modal Puntuaciones
 
 botonCerrar.onclick=()=>{
   document.querySelector(".modal-puntuacion").classList.add("oculto")
-  
+  puntuaciones.textContent=""
 }
 
-function guardarDatos(){
-  jugador.puntuacion=partidasGanadas
+botonCerrar.onmouseover = () => botonCerrar.src = "./img/salir2.png"
+botonCerrar.onmouseout = () => botonCerrar.src = "./img/salir.png"
+
+function recogerDatos(){
   let puntuaciones=localStorage.getItem("puntuaciones")
   if(puntuaciones==undefined)
     jugadores=[]
   else
     jugadores=JSON.parse(puntuaciones)
+}
+
+function guardarDatos(){
+  jugador.puntuacion=partidasGanadas
   jugadores.unshift(jugador)
-  localStorage.setItem("puntuaciones",JSON.stringify(jugadores))
+  let jugadoresOrden=jugadores.sort((a,b)=>b.puntuacion-a.puntuacion)
+  localStorage.setItem("puntuaciones",JSON.stringify(jugadoresOrden))
 }
 
 //Modal Perder
 
 botonVolverJugar.onclick=()=>{
   IniciarPartida()
-  teclado.classList.remove("invisible")
   document.querySelector(".modal-fin").classList.add("oculto")
   
 }
 
+botonVolverJugar.onmouseover = () => botonVolverJugar.src = "./img/rejugar2.png"
+botonVolverJugar.onmouseout = () => botonVolverJugar.src = "./img/rejugar.png"
 
+/* 
+  Crear estilo en SCSS
+  Hacerlo responsive
+  Añadir elección de temática
+  Añadir dificultad con temporizador
+  Añadir frases
+*/

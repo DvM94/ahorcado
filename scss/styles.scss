@@ -1,8 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
 
+$AzulOscuro:#4B72A6;
+$AzulMedio:#89BAD9;
+$AzulClaro:#C2E5F2;
+$VerdeClaro:#B3F28D;
+$VerdeOscuro:#8BCC93;
+
 *{
   font-family: 'Acme', sans-serif;
   text-align: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .cargando {
@@ -23,41 +32,170 @@
   visibility: hidden;
 }
 
-.juego-palabra{
-  display: flex;
-  justify-content: center;
-    .borde-inferior{
-    border-bottom: 2px solid black;
-    margin: 5px 2px;
-    height: 60px;
-    width: 50px;
-  }
+body{
+  background-image: url("../img/fondo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
-.juego-ahorcado{
-  width: 400px;
-}
-
-.juego-teclado{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0px auto;
-  max-width: 650px;
-  .letra{
+.cabecera{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px;
+  &-menu{
+    display: flex;
+    justify-content: space-between;
+    img{
       cursor: pointer;
-      position: relative;
-      border: 1px solid #999;
-      height: 70px;
-      width: 70px;
-      font-size: 3em;
-      &:hover{
-          background-color:rgb(224, 224, 224);
-      }
-      .pulsada{
-          position: absolute;
-          left: 0px;
-          width: 70px;
-      }
+    }
   }
 }
+
+.juego{
+  padding: 15px 0 80px 0;
+  &-temporizador{
+    display: none;
+    font-size: 2em; 
+  }
+  &-tematica{
+    font-size: 2em;
+  }
+  &-ahorcado{
+    width: 50%;
+    max-width: 250px;
+  }
+  &-palabra{
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    .borde-inferior{
+      border-bottom: 2px solid black;
+      margin: 5px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+  &-teclado{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 15px auto;
+    width: 60%;
+    max-width: 700px;
+    min-width: 400px;
+    .letra{
+        cursor: pointer;
+        position: relative;
+        border: 1px solid #999;
+        height: 45px;
+        width: 45px;
+        font-size: 2em;
+        &:hover{
+            background-color:rgb(224, 224, 224);
+        }
+        .pulsada{
+            position: absolute;
+            left: 0px;
+            width: 45px;
+        }
+    }
+  }
+  &-datos{
+    width: 250px;
+    margin: 0 auto;
+    font-size: 2em;
+    &-nombre{
+      padding: 5px;
+      background-color: $AzulOscuro;
+      color: white;
+      border-radius: 10px 10px 0 0;
+    }
+    &-partidas{
+      padding: 5px;
+      border: 4px solid $AzulOscuro;
+      background-color: white;
+      border-radius: 0 0 10px 10px;
+      font-size:0.75em;
+    }
+  }
+}
+
+.pie{
+  height: 50px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 10;
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.modal-inicio{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url("../img/fondo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+  &-imagen{
+    width: 50%;
+    max-width: 350px;
+    margin: 15px 0;
+  }
+  &-formulario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px auto;
+    width: 400px;
+    font-size: 2em;
+    input{
+      margin: 15px 0;
+      width: 250px;
+      font-family: 'Indie Flower', cursive;
+      font-size: 1em;
+      background-color:rgba(255, 255, 255, 0.500);
+      border: none;
+      border-bottom: 2px solid #4B72A6;
+    }
+    &-alerta{
+      background-color: $AzulClaro;
+      padding: 10px 20px;
+      font-size: 0.75em;
+      border: 3px solid black;
+      border-radius: 10px;
+    }
+  }
+  &-jugar{
+    cursor: pointer;
+    margin: 30px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+.marcador-listado{
+  width: 40%;
+  padding: 10px;
+  margin: 0px auto;
+  &-fila{
+    display:flex;
+    justify-content: space-between;
+  }
+}
+
