@@ -41,6 +41,7 @@ body{
 
 .cabecera{
   position: fixed;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
@@ -136,6 +137,7 @@ body{
 
 .modal-inicio{
   position: fixed;
+  z-index: 3;
   top: 0;
   left: 0;
   background-image: url("../img/fondo.jpg");
@@ -213,6 +215,7 @@ body{
 
 .modal-puntuacion{
   position: fixed;
+  z-index: 3;
   top: 0;
   left: 0;
   width: 100%;
