@@ -167,8 +167,16 @@ body {
   height: 100%;
 }
 
+.modal-inicio-imagenes {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding-bottom: 50px;
+}
+
 .modal-inicio-imagen {
-  width: 50%;
   max-width: 350px;
   margin: 15px 0;
 }
@@ -212,17 +220,124 @@ body {
   margin: 30px;
 }
 
-.marcador-listado {
-  width: 40%;
-  padding: 10px;
+.modal-fin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url("../img/fondo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-fin-imagenes {
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding-bottom: 50px;
+}
+
+.modal-fin-imagen {
+  width: 500px;
+}
+
+.modal-fin img {
+  display: block;
   margin: 0px auto;
 }
 
-.marcador-listado-fila {
+.modal-puntuacion {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-puntuacion:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: block;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-puntuacion-marcador {
+  z-index: 10;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: white;
+  border-radius: 15px;
+  border: 5px solid #4B72A6;
+  width: 400px;
+  height: 400px;
+}
+
+.modal-puntuacion-marcador .marcador-salir {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.modal-puntuacion-marcador .marcador-titulo {
+  padding: 30px 0;
+  font-size: 2em;
+}
+
+.modal-puntuacion-marcador .marcador-titulos {
+  width: 80%;
+  color: #4B72A6;
+  padding: 0 20px;
+  margin: 0px auto;
+  font-size: 1.4em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.modal-puntuacion-marcador .marcador-titulos p {
+  padding: 5px 0;
+}
+
+.modal-puntuacion-marcador .marcador-listado {
+  width: 80%;
+  padding: 20px;
+  margin: 0px auto;
+  font-size: 1.4em;
+}
+
+.modal-puntuacion-marcador .marcador-listado-fila {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modal-puntuacion-marcador .marcador-listado-fila p {
+  padding: 5px 0;
+}
+
+@media (max-width: 480px) {
+  .modal-inicio-imagen {
+    width: 70%;
+  }
+  .modal-fin-imagen {
+    padding: 40px 0;
+    width: 90%;
+  }
 }

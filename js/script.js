@@ -38,10 +38,24 @@ let jugador={
 //Array de temáticas
 
 let palabras=[
-  {palabra:"AB",tema:"Animales"},
-  {palabra:"DEF",tema:"Animales"},
-  {palabra:"GHIJ",tema:"Países"},
-  {palabra:"JKLMN",tema:"Países"}
+  {palabra:"ELEFANTE",tema:"Animales"},
+  {palabra:"CANGURO",tema:"Animales"},
+  {palabra:"TIGRE",tema:"Animales"},
+  {palabra:"RINOCERONTE",tema:"Animales"},
+  {palabra:"ORNITORRINCO",tema:"Animales"},
+  {palabra:"KIWI",tema:"Animales"},
+  {palabra:"CICLISMO",tema:"Deportes"},
+  {palabra:"WATERPOLO",tema:"Deportes"},
+  {palabra:"CURLING",tema:"Deportes"},
+  {palabra:"HIPICA",tema:"Deportes"},
+  {palabra:"ATLETISMO",tema:"Deportes"},
+  {palabra:"BADMINTON",tema:"Deportes"},
+  {palabra:"MONGOLIA",tema:"Países"},
+  {palabra:"ESPAÑA",tema:"Países"},
+  {palabra:"AUSTRALIA",tema:"Países"},
+  {palabra:"ITALIA",tema:"Países"},
+  {palabra:"FINLANDIA",tema:"Países"},
+  {palabra:"FRANCIA",tema:"Países"}
 ]
 
 //Modal Inicio
@@ -152,6 +166,7 @@ function borrar(){
 
 botonInicio.onclick=()=>{
   guardarDatos()
+  document.querySelector(".modal-inicio-formulario-alerta").classList.add("oculto")
   document.querySelector(".modal-inicio").classList.remove("oculto")
   document.querySelector(".modal-fin").classList.add("oculto")
   nombre.value=""
@@ -216,9 +231,6 @@ botonVolverJugar.onmouseover = () => botonVolverJugar.src = "./img/rejugar2.png"
 botonVolverJugar.onmouseout = () => botonVolverJugar.src = "./img/rejugar.png"
 
 /* 
-  Crear estilo en SCSS
-  Hacerlo responsive
   Añadir elección de temática
   Añadir dificultad con temporizador
-  Añadir frases
 */

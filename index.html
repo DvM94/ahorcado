@@ -35,15 +35,17 @@
   
   <!--Modal inicio-->
   <div class="modal-inicio">
-    <img src="img/intro.png" alt="Logo" class="modal-inicio-imagen">
-    <form class="modal-inicio-formulario">
-      <label for="nombre">Introduce tu nombre:</label>
-      <input type="text" id="nombre" placeholder="Player" autofocus>
-      <div class="modal-inicio-formulario-alerta oculto">
-        <p>Debes introducir tu nombre</p>
-      </div>
-    </form>
-    <img src="img/jugar.png" alt="Jugar" class="modal-inicio-jugar">
+    <div class="modal-inicio-imagenes">
+      <img src="img/intro.png" alt="Logo" class="modal-inicio-imagen">
+      <form class="modal-inicio-formulario">
+        <label for="nombre">Introduce tu nombre:</label>
+        <input type="text" id="nombre" placeholder="Player" autofocus>
+        <div class="modal-inicio-formulario-alerta oculto">
+          <p>Debes introducir tu nombre</p>
+        </div>
+      </form>
+      <img src="img/jugar.png" alt="Jugar" class="modal-inicio-jugar">
+    </div>
   </div>
 
   <!--Modal nivel y temática-->
@@ -61,8 +63,10 @@
 
   <!--Modal perder-->
   <div class="modal-fin oculto">
-    <img src="img/perder.png" alt="Logo" class="modal-fin-imagen">
-    <img src="img/rejugar.png" alt="Volver a jugar" class="modal-fin-rejugar">
+    <div class="modal-fin-imagenes">
+      <img src="img/perder.png" alt="Logo" class="modal-fin-imagen">
+      <img src="img/rejugar.png" alt="Volver a jugar" class="modal-fin-rejugar">
+    </div>
   </div>
 
   <!--Modal puntuación-->
@@ -70,10 +74,12 @@
     <div class="modal-puntuacion-marcador">
       <img src="img/salir.png" alt="Salir" class="marcador-salir">
       <h2 class="marcador-titulo">Puntuaciones</h2>
+      <div class="marcador-titulos">
+        <p>NOMBRE</p>
+        <p>PUNTUACIÓN</p>
+      </div>
       <div class="marcador-listado">
         <div class="marcador-listado-fila">
-          <p>NOMBRE</p>
-          <p>PUNTUACIÓN</p>
         </div>
       </div>
     </div>
