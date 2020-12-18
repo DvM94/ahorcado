@@ -70,6 +70,8 @@ botonJugarInicio.onclick=IniciarPartida
 botonJugarInicio.onmouseover = () => botonJugarInicio.src = "./img/jugar2.png"
 botonJugarInicio.onmouseout = () => botonJugarInicio.src = "./img/jugar.png"
 
+//Pantalla Principal
+
 function IniciarPartida(){
   recogerDatos()
   fallos=0
@@ -101,7 +103,7 @@ function IniciarPartida(){
       letra.insertAdjacentElement("beforeend",p)
       palabra.insertAdjacentElement("beforeend",letra)
     })
-    console.log(palabraElegidaArray)
+    console.log(palabraElegida)
   }
 }
 
@@ -112,64 +114,63 @@ function borrar(){
     palabra.firstChild.remove()
 }
 
-//Pantalla Principal
 
-  function crearAbecedario(){
-    let abecedario=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
-    let letras=document.createElement("div")
-    let imgs=document.createElement("img") 
-    imgs.classList.add("pulsada")
-    letras.classList.add("letra")
-    abecedario.forEach(l => {
-        let letra=letras.cloneNode()
-        letra.innerHTML=l
-        letra.onclick=()=>{
-          if(letra.firstElementChild==null){
-            if(palabras[seleccion].palabra.indexOf(letra.textContent)==-1){
-              imgs.setAttribute("src","./img/letraMal.png")
-              fallos++
-              ahorcado.setAttribute("src","./img/ahorcado"+fallos+".png")
-            }
-            else{
-              imgs.setAttribute("src","./img/letraBien.png")
-              let comparacionLetra = Array.from(document.querySelectorAll(".juego-palabra div p"))
-              comparacionLetra.forEach(l=>{
-                if(l.textContent==letra.textContent){
-                  l.classList.remove("oculto")
-                  aciertos++
-                }
-              })           
-            }
-            comprobarJugada()  
-            let img=imgs.cloneNode()
-            letra.insertAdjacentElement("afterbegin",img)
+function crearAbecedario(){
+  let abecedario=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","Ñ","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+  let letras=document.createElement("div")
+  let imgs=document.createElement("img") 
+  imgs.classList.add("pulsada")
+  letras.classList.add("letra")
+  abecedario.forEach(l => {
+      let letra=letras.cloneNode()
+      letra.innerHTML=l
+      letra.onclick=()=>{
+        if(letra.firstElementChild==null){
+          if(palabras[seleccion].palabra.indexOf(letra.textContent)==-1){
+            imgs.setAttribute("src","./img/letraMal.png")
+            fallos++
+            ahorcado.setAttribute("src","./img/ahorcado"+fallos+".png")
           }
+          else{
+            imgs.setAttribute("src","./img/letraBien.png")
+            let comparacionLetra = Array.from(document.querySelectorAll(".juego-palabra div p"))
+            comparacionLetra.forEach(l=>{
+              if(l.textContent==letra.textContent){
+                l.classList.remove("oculto")
+                aciertos++
+              }
+            })           
+          }
+          comprobarJugada()  
+          let img=imgs.cloneNode()
+          letra.insertAdjacentElement("afterbegin",img)
         }
-        teclado.appendChild(letra)
-    })
-  }
+      }
+      teclado.appendChild(letra)
+  })
+}
 
-  function comprobarJugada(){
-    if(fallos>=6){
-      Array.from(palabra.querySelectorAll("p")).forEach(l=>{
-        l.classList.remove("oculto")
-      })
-      teclado.classList.add("invisible")
-      guardarDatos()
-      setTimeout(() => {
-        document.querySelector(".modal-fin").classList.remove("oculto")
-        partidasGanadas=0
-      }, 1500)
-    }
-    if(aciertos==palabras[seleccion].palabra.length){
-      teclado.classList.add("invisible")
-      partidasGanadas++
-      ahorcado.setAttribute("src","./img/ahorcado.gif")
-      setTimeout(() => {
-        IniciarPartida()
-      }, 2000)
-    }
+function comprobarJugada(){
+  if(fallos>=6){
+    Array.from(palabra.querySelectorAll("p")).forEach(l=>{
+      l.classList.remove("oculto")
+    })
+    teclado.classList.add("invisible")
+    guardarDatos()
+    setTimeout(() => {
+      document.querySelector(".modal-fin").classList.remove("oculto")
+      partidasGanadas=0
+    }, 1500)
   }
+  if(aciertos==palabras[seleccion].palabra.length){
+    teclado.classList.add("invisible")
+    partidasGanadas++
+    ahorcado.setAttribute("src","./img/ahorcado.gif")
+    setTimeout(() => {
+      IniciarPartida()
+    }, 2000)
+  }
+}
 
 //Botones cabecera
 
@@ -239,7 +240,7 @@ botonVolverJugar.onclick=()=>{
 botonVolverJugar.onmouseover = () => botonVolverJugar.src = "./img/rejugar2.png"
 botonVolverJugar.onmouseout = () => botonVolverJugar.src = "./img/rejugar.png"
 
-/* 
-  Añadir elección de temática
-  Añadir dificultad con temporizador
-*/
+//Canción
+
+var audio = document.getElementById("musica");
+audio.volume = 0.1;
