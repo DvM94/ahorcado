@@ -151,6 +151,9 @@ function borrar(){
 
   function comprobarJugada(){
     if(fallos>=6){
+      Array.from(palabra.querySelectorAll("p")).forEach(l=>{
+        l.classList.remove("oculto")
+      })
       teclado.classList.add("invisible")
       guardarDatos()
       setTimeout(() => {

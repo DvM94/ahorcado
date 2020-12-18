@@ -112,10 +112,11 @@ body {
   height: 45px;
   width: 45px;
   font-size: 2em;
+  background-color: white;
 }
 
 .juego-teclado .letra:hover {
-  background-color: #e0e0e0;
+  background-color: #e9e9e9;
 }
 
 .juego-teclado .letra .pulsada {
@@ -277,7 +278,7 @@ body {
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   background-color: white;
   border-radius: 15px;
